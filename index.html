@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Display a map on a webpage</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .btn {
+            position: absolute;
+            display: block;
+            left: 50%;
+            width: 200px;
+            margin-left: -100px;
+            padding: 5px 10px;
+            border: none;
+            font-size: 14px;
+            font-weight: 400;
+            background-color: #3386c0;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+
+        .btn:hover {
+            background-color: #4ea0da;
+        }
+
+        .fly {
+            top: 20px;
+        }
+
+        .spin {
+            top: 50px;
+        }
+
+        .zoom-control {
+            position: absolute;
+            top: 3%;
+            right: 5%;
+            width: 300px;
+            height: 70px;
+            padding-left: 15px;
+            padding-top: 10px;
+            background: rgba(255, 255, 255, .7);
+            border-radius: 5px;
+        }
+
+        .zoom-input {
+            margin-top: 10px;
+            width: 270px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <button class="btn spin">暂停旋转</button>
+        <div class="zoom-control">
+        <label>缩放等级：<span class="zoom-value">1</span></label>
+        <input class="zoom-input" type="range" min="0" max="20" step="0.1" value="1">
+    </div>
+    <button class="btn fly">flyTo</button>
+
+    <script src="./mapbox_demo/main.js"></script>
+
+    <!-- <script type="module">
+        import globeSpin from './mapbox_demo/globeSpin.js'
+        import zoom from './mapbox_demo/zoom.js'
+        mapboxgl.accessToken = 'pk.eyJ1Ijoiem91c2wiLCJhIjoiY2w4aWV3cGQ0MTgwbjN3cWhhbHNxZ2dwdyJ9.2wI-vUjIAyHwHvgCY_ljdQ';
+        const map = new mapboxgl.Map({
+            container: 'map', // container ID
+            // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+            style: 'mapbox://styles/mapbox/satellite-v9', // style URL
+            center: [114, 22.5], // starting position [lng, lat]
+            zoom: 1.5, // starting zoom
+            projection: 'globe' // display the map as a 3D globe
+        });
+
+        map.on('style.load', () => {
+            map.setFog({}); // Set the default atmosphere style
+        });
+        // map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
+        globeSpin(map)
+        zoom(map)
+
+    </script> -->
+</body>
+
+</html>
